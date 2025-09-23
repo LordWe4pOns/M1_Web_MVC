@@ -7,6 +7,7 @@
     <body>
         <?php
             require_once 'database.php';
+            session_start(); 
 
             $message = "";
 
@@ -32,7 +33,8 @@
                 ]);
 
                 if ($statement->rowCount()) {
-                    $message = "Registration successful!";
+                    header('Location: login.php');
+                    exit();
                 } else {
                     $message = "Registration failed. Please try again.";
                 }
@@ -80,6 +82,7 @@
             />
             <br/>
             <input type="submit" value="Register" name="register">
+            <button onclick="window.location.href='login.php';" type="button">I already have an account</button>
         </form>
     </body>
 </html>
