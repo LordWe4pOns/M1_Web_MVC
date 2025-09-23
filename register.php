@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+    </head>
+    <body>
+        <?php
+            require_once 'database.php';
+
+            $message = "";
+
+            if (isset($_POST['register'])) {
+                $login = $_POST['login'];
+                $password = $_POST['password'];
+                $account_id = $_POST['account_id'];
+                $email = $_POST['email'];
+
+                if (empty($login) || empty($password) || empty($account_id) || empty($email)) {
+                    die("All fields are required.");
+                }
+
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                $query = "INSERT INTO users (login, password, account_id, email) 
+                    VALUES (:login, :password, :account_id, :email)";
+                $statement = $db->prepare($query);
+                $statement->execute([
+                    ':login' => $login,
+                    ':password' => $hashedPassword,
+                    ':account_id' => $account_id,
+                    ':email' => $email
+                ]);
+
+                if ($statement->rowCount()) {
+                    $message = "Registration successful!";
+                } else {
+                    $message = "Registration failed. Please try again.";
+                }
+            }
+        ?>
+        <h1><?php echo $message; ?></h1>
+        <form method="POST" action="">
+            <label for="login">Login</label>
+            <input
+                id="login"
+                name="login"
+                type="text"
+                placeholder="Type your login..."
+                required
+            />
+            <br/>
+
+            <label for="password">Password</label>
+            <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Type your password..."
+                required
+            />
+            <br/>
+
+            <label for="account_id">Account ID</label>
+            <input
+                id="account_id"
+                name="account_id"
+                type="number"
+                placeholder="Type your account ID..."
+                required
+            />
+            <br/>
+
+            <label for="email">Email address</label>
+            <input
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Type your email address..."
+                required
+            />
+            <br/>
+            <input type="submit" value="Register" name="register">
+        </form>
+    </body>
+</html>
