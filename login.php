@@ -28,6 +28,7 @@
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_login'] = $user['login'];
                     header('Location: index.php');
+                    exit();
                 } else {
                     $message = "Invalid login or password.";
                 }
