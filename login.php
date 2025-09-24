@@ -33,7 +33,8 @@
                 }
             }
         ?>
-        <h1><?php echo $message; ?></h1>
+        <h1>Login</h1>
+        <h2><?php echo $message; ?></h2>
         <form method="POST" action="">
             <label for="login">Login</label>
             <input
