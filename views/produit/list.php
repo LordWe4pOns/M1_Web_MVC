@@ -9,9 +9,9 @@
 <body class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-8">
     <div class="max-w-6xl mx-auto">
         <div class="flex items-center justify-between mb-10">
-            <h1 class="text-4xl font-bold text-white">Liste des produits</h1>
+            <h1 class="text-4xl font-bold text-white">Product list</h1>
             <a href="index.php?action=produit_create" class="inline-flex items-center gap-2 rounded-xl bg-white/90 text-indigo-700 font-semibold px-4 py-2 hover:bg-white transition">
-                ➕ Ajouter un produit
+                ➕ Add new product
             </a>
         </div>
 
@@ -21,8 +21,8 @@
                     <tr>
                         <th class="px-4 py-3 text-left">ID</th>
                         <th class="px-4 py-3 text-left">Type</th>
-                        <th class="px-4 py-3 text-left">Désignation</th>
-                        <th class="px-4 py-3 text-left">Prix HT</th>
+                        <th class="px-4 py-3 text-left">Designation</th>
+                        <th class="px-4 py-3 text-left">Price without taxes</th>
                         <th class="px-4 py-3 text-left">Date</th>
                         <th class="px-4 py-3 text-left">Stock</th>
                         <th class="px-4 py-3 text-center">Actions</th>
@@ -38,8 +38,8 @@
                             <td class="px-4 py-3"><?= $p['date_in'] ?></td>
                             <td class="px-4 py-3"><?= $p['stock_p'] ?></td>
                             <td class="px-4 py-3 text-center flex justify-center gap-3">
-                                <a href="index.php?action=produit_edit&id=<?= $p['id_p'] ?>" class="rounded-lg bg-blue-500/80 hover:bg-blue-600 text-white font-semibold px-3 py-1 transition">✏️ Modifier</a>
-                                <a href="index.php?action=produit_delete&id=<?= $p['id_p'] ?>" onclick="return confirm('Supprimer ?')" class="rounded-lg bg-red-500/80 hover:bg-red-600 text-white font-semibold px-3 py-1 transition">🗑️ Supprimer</a>
+                                <a href="index.php?action=produit_edit&id=<?= $p['id_p'] ?>" class="rounded-lg bg-blue-500/80 hover:bg-blue-600 text-white font-semibold px-3 py-1 transition">✏️ Edit</a>
+                                <a href="index.php?action=produit_delete&id=<?= $p['id_p'] ?>" onclick="return confirm('Supprimer ?')" class="rounded-lg bg-red-500/80 hover:bg-red-600 text-white font-semibold px-3 py-1 transition">🗑️ Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
