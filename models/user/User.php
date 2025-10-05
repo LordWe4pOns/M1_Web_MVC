@@ -7,6 +7,12 @@ class User {
         $this->db = $db;
     }
 
+    public function getAll(): mixed {
+        $query = "SELECT * FROM user";
+        $statement = $this->db->query($query);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getUserByLogin($login): mixed {
         $query = "SELECT * FROM user WHERE user_login = :login";
         $statement = $this->db->prepare($query);
@@ -37,4 +43,9 @@ class User {
         return $statement->rowCount() > 0;
     }
 
+    public function delete($id): void {
+        $query = "DELETE FROM user WHERE user_id = :user_id";
+        $statement = $this->db->prepare($query);
+        $statement->execute([':user_id' => $id]);
+    }
 }

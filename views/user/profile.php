@@ -10,6 +10,7 @@
 <header class="mx-auto flex max-w-5xl items-center justify-between">
     <h1 class="text-3xl font-semibold text-white">Your profile</h1>
     <button onclick="window.location.href='index.php?action=logout';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Logout</button>
+    <button onclick="window.location.href='index.php?action=user_list';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">User list</button>
     <button onclick="window.location.href='index.php?action=produit_list';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Product list</button>
     <button onclick="window.location.href='index.php?action=produit_create';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Create product</button>
 </header>
