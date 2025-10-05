@@ -9,9 +9,9 @@
 <body class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-6">
 <header class="mx-auto flex max-w-5xl items-center justify-between">
     <h1 class="text-3xl font-semibold text-white">Your profile</h1>
-    <form method="post" action="index.php?action=logout">
-        <button type="submit" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Logout</button>
-    </form>
+    <button onclick="window.location.href='index.php?action=logout';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Logout</button>
+    <button onclick="window.location.href='index.php?action=produit_list';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Product list</button>
+    <button onclick="window.location.href='index.php?action=produit_create';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Create product</button>
 </header>
 
 <main class="mx-auto mt-6 max-w-5xl">

@@ -8,6 +8,7 @@ require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/controllers/user/LoginController.php';
 require_once __DIR__ . '/controllers/user/RegisterController.php';
 require_once __DIR__ . '/controllers/user/ProfileController.php';
+require_once __DIR__ . '/controllers/produit/ProduitController.php';
 
 $action = $_GET['action'] ?? 'login';
 
@@ -30,6 +31,28 @@ switch ($action) {
     case 'logout':
         $controller = new LoginController($db);
         $controller->logout();
+        break;
+
+    case 'produit_list':
+        $controller = new ProduitController($db);
+        $controller->index();
+        break;
+
+    case 'produit_create':
+        $controller = new ProduitController($db);
+        $controller->create();
+        break;
+
+    case 'produit_edit':
+        $controller = new ProduitController($db);
+        $id = $_GET['id'];
+        $controller->edit($id);
+        break;
+
+    case 'produit_delete':
+        $controller = new ProduitController($db);
+        $id = $_GET['id'];
+        $controller->delete($id);
         break;
 
     default:
