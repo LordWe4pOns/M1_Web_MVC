@@ -1,20 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Welcome</title>
-    </head>
-    <body>
-        <?php
-            session_start();
+<?php
 
-            if (!isset($_SESSION['user_id'])) {
-                header('Location: register.php');
-                exit();
-            } else {
-                echo "<h1>Welcome to this incredible website, " . htmlspecialchars($_SESSION['user_login']) . " !</h1>";
-            }
-        ?>
-        <button onclick="window.location.href='logout.php';" type="button">Logout</button>
-    </body>
-</html>
+// debug
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once 'config/database.php';
+require_once 'controllers/user/LoginController.php';
+require_once 'controllers/user/RegisterController.php';
+require_once 'controllers/user/ProfileController.php';
+
+$action = $_GET['action'] ?? 'login';
+
+switch ($action) {
+    case 'login':
+        $controller = new LoginController($db);
+        $controller->login();
+        break;
+
+    case 'register':
+        $controller = new RegisterController($db);
+        $controller->register();
+        break;
+    
+    case 'profile':
+        $controller = new ProfileController($db);
+        $controller->showProfile();
+        break;
+
+    case 'logout':
+        $controller = new LoginController($db);
+        $controller->logout();
+        break;
+
+    default:
+        echo "Unknown action.";
+        break;
+}
