@@ -8,14 +8,14 @@ class User {
     }
 
     public function getUserByLogin($login): mixed {
-        $query = "SELECT * FROM users WHERE login = :login";
+        $query = "SELECT * FROM user WHERE user_login = :login";
         $statement = $this->db->prepare($query);
         $statement->execute([':login' => $login]);
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getUserById($id): mixed {
-        $query = "SELECT * FROM users WHERE id = :id";
+        $query = "SELECT * FROM user WHERE user_id = :id";
         $statement = $this->db->prepare($query);
         $statement->execute([':id' => $id]);
         return $statement->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +23,7 @@ class User {
 
     public function registerUser($login, $password, $account_id, $email): bool {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $query = "INSERT INTO users (login, password, account_id, email)
+        $query = "INSERT INTO user (user_login, user_password, user_compte_id, user_mail)
                   VALUES (:login, :password, :account_id, :email)";
         $statement = $this->db->prepare($query);
 
