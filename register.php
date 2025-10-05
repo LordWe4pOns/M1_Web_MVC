@@ -77,8 +77,9 @@
             <input
                 id="email"
                 name="email"
-                type="text"
+                type="email"
                 placeholder="Type your email address..."
+                pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                 required
             />
             <br/>
