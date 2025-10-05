@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <h1>Login</h1>
-    <h2><?= htmlspecialchars($message) ?></h2>
+<body class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center p-6">
+<div class="w-full max-w-md">
+    <div class="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl">
+        <div class="px-8 pt-8 pb-4 text-center">
+            <h1 class="text-3xl font-semibold text-white tracking-tight">Welcome back</h1>
+        </div>
 
-    <form method="POST" action="">
-        <label for="login">Login</label>
-        <input 
-            id="login" 
-            name="login" 
-            type="text" 
-            placeholder="Type your login..." 
-            required
-        >
-        <br>
+        <?php if (!empty($message)) : ?>
+            <div class="mx-8 mb-4 rounded-lg bg-yellow-400/20 px-4 py-3 text-sm text-yellow-100 border border-yellow-300/20">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
 
-        <label for="password">Password</label>
-        <input 
-            id="password" 
-            name="password" 
-            type="password" 
-            placeholder="Type your password..." 
-            required
-        >
-        <br>
+        <form method="POST" action="" class="px-8 pb-8 space-y-5">
+            <div>
+                <label for="login" class="block text-sm font-medium text-white">Login</label>
+                <input
+                        id="login"
+                        name="login"
+                        type="text"
+                        placeholder="Type your login..."
+                        required
+                        class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                />
+            </div>
 
-        <input type="submit" value="Login">
-        <button onclick="window.location.href='index.php?action=register';" type="button">
-            I don't have an account
-        </button>
-    </form>
+            <div>
+                <label for="password" class="block text-sm font-medium text-white">Password</label>
+                <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Type your password..."
+                        required
+                        class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                />
+            </div>
+
+            <div class="pt-2 flex items-center gap-3">
+                <input type="submit" value="Login" class="inline-flex cursor-pointer items-center justify-center rounded-xl bg-white/90 px-4 py-2.5 text-sm font-semibold text-indigo-700 transition hover:bg-white" />
+                <button onclick="window.location.href='index.php?action=register';" type="button" class="inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-4 py-2.5 text-sm font-medium text-white hover:bg-white/10">
+                    I don't have an account
+                </button>
+            </div>
+        </form>
+    </div>
+    <p class="mt-6 text-center text-xs text-white/70">© <?php echo date('Y'); ?> — App</p>
+</div>
 </body>
 </html>
