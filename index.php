@@ -4,10 +4,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'config/database.php';
-require_once 'controllers/user/LoginController.php';
-require_once 'controllers/user/RegisterController.php';
-require_once 'controllers/user/ProfileController.php';
+require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/controllers/user/LoginController.php';
+require_once __DIR__ . '/controllers/user/RegisterController.php';
+require_once __DIR__ . '/controllers/user/ProfileController.php';
 
 $action = $_GET['action'] ?? 'login';
 
