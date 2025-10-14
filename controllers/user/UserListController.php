@@ -11,7 +11,7 @@ class UserListController {
 
     public function index(): void {
         $users = $this->model->getAll();
-        include __DIR__ . '/../../views/admin/list.php';
+        include __DIR__ . '/../../views/admin/user_list.php';
     }
 
     public function deleteUser($id): void {

@@ -10,7 +10,7 @@ class ProduitController {
 
     public function index(): void {
         $produits = $this->produitModel->getAll();
-        include __DIR__ . '/../../views/produit/list.php';
+        include __DIR__ . '/../../views/produit/product_list.php';
     }
 
     public function create(): void {
