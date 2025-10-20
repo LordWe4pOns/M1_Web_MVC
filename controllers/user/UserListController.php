@@ -18,4 +18,10 @@ class UserListController {
         $this->model->delete($id);
         header("Location: index.php?action=user_list");
     }
+
+
+    public function editUser($id, $userData): void {
+        $this->model->update($id, $userData);
+        header("Location: index.php?action=user_list");
+    }
 }

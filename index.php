@@ -44,6 +44,13 @@ switch ($action) {
         $id = $_GET['id'];
         $controller->deleteUser($id);
         break;
+    
+    case 'user_edit':
+        $controller = new UserListController($db);
+        $id = $_GET['id'];
+        $userData = $_POST['user'] ?? [];
+        $controller->editUser($id, $userData);
+        break;
 
     case 'produit_list':
         $controller = new ProduitController($db);

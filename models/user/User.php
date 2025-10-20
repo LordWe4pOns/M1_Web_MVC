@@ -48,4 +48,35 @@ class User {
         $statement = $this->db->prepare($query);
         $statement->execute([':user_id' => $id]);
     }
+
+    // update()
+    public function update($id, $userData): void {
+        $fields = [];
+        $params = [':user_id' => $id];
+
+        if (isset($userData['user_login'])) {
+            $fields[] = 'user_login = :user_login';
+            $params[':user_login'] = $userData['user_login'];
+        }
+        if (isset($userData['user_password'])) {
+            $fields[] = 'user_password = :user_password';
+            $params[':user_password'] = password_hash($userData['user_password'], PASSWORD_BCRYPT);
+        }
+        if (isset($userData['user_compte_id'])) {
+            $fields[] = 'user_compte_id = :user_compte_id';
+            $params[':user_compte_id'] = $userData['user_compte_id'];
+        }
+        if (isset($userData['user_mail'])) {
+            $fields[] = 'user_mail = :user_mail';
+            $params[':user_mail'] = $userData['user_mail'];
+        }
+
+        if (empty($fields)) {
+            return; // Nothing to update
+        }
+
+        $query = "UPDATE user SET " . implode(', ', $fields) . " WHERE user_id = :user_id";
+        $statement = $this->db->prepare($query);
+        $statement->execute($params);
+    }
 }
