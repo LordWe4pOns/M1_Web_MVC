@@ -39,7 +39,7 @@
                             <td class="px-4 py-3"><?= $p['stock_p'] ?></td>
                             <td class="px-4 py-3 text-center flex justify-center gap-3">
                                 <a href="index.php?action=produit_edit&id=<?= $p['id_p'] ?>" class="rounded-lg bg-blue-500/80 hover:bg-blue-600 text-white font-semibold px-3 py-1 transition">✏️ Edit</a>
-                                <a href="index.php?action=produit_delete&id=<?= $p['id_p'] ?>" onclick="return confirm('Supprimer ?')" class="rounded-lg bg-red-500/80 hover:bg-red-600 text-white font-semibold px-3 py-1 transition">🗑️ Delete</a>
+                                <a href="index.php?action=produit_delete&id=<?= $p['id_p'] ?>" onclick="return confirm('Delete ?')" class="rounded-lg bg-red-500/80 hover:bg-red-600 text-white font-semibold px-3 py-1 transition">🗑️ Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
