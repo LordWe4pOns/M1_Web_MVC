@@ -1,6 +1,7 @@
 # Installer le projet
 
 - Copier le fichier .env en .env.local
+- **NE PAS MODIFIER LE .env**
 - Modifier les variables d'environnement dans .env.local
 - Créer la base de donnée avec cette requete SQL : 
 ```code
