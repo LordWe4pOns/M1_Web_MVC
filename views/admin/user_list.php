@@ -40,19 +40,19 @@
                         <td class="px-4 py-3"><?= htmlspecialchars($u['user_date_new']) ?></td>
                         <td class="px-4 py-3"><?= htmlspecialchars($u['user_date_login']) ?></td>
                         <td class="px-4 py-3 text-center flex justify-center gap-2">
-                            <!-- Delete -->
-                            <a href="index.php?action=user_delete&id=<?= $u['user_id'] ?>"
-                               onclick="return confirm('Delete this user ?')"
-                               class="rounded-lg bg-red-500/80 hover:bg-red-600 text-white font-semibold px-3 py-1 transition">
-                                🗑️ Delete
-                            </a>
-
                             <!-- Edit -->
                             <button type="button"
                                 onclick="openModal('<?= $u['user_id'] ?>', '<?= htmlspecialchars($u['user_login'], ENT_QUOTES) ?>', '<?= htmlspecialchars($u['user_mail'], ENT_QUOTES) ?>')"
                                 class="rounded-lg bg-blue-500/80 hover:bg-blue-600 text-white font-semibold px-3 py-1 transition">
                                 ✏️ Edit
                             </button>
+                            
+                            <!-- Delete -->
+                            <a href="index.php?action=user_delete&id=<?= $u['user_id'] ?>"
+                               onclick="return confirm('Delete this user ?')"
+                               class="rounded-lg bg-red-500/80 hover:bg-red-600 text-white font-semibold px-3 py-1 transition">
+                                🗑️ Delete
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
