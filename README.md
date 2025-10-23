@@ -9,11 +9,11 @@
         `user_id` INT NOT NULL AUTO_INCREMENT,
         `user_login` TEXT NOT NULL ,
         `user_password` LONGTEXT NOT NULL,
-        `user_compte_id` INT NOT NULL ,
         `user_mail` TEXT NOT NULL,
         `user_date_new` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        `user_date_login` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`user_id`),
-        UNIQUE `cle-etrangere` (`user_compte_id`)
+        `user_date_login` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `admin` tinyint(1) NOT NULL DEFAULT 0,
+        PRIMARY KEY (`user_id`)
     ) ENGINE = InnoDB;
 
     CREATE TABLE produit (
