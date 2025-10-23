@@ -7,13 +7,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-6">
-    <header class="mx-auto mb-5 flex max-w-5xl items-center justify-between">
-        <h1 class="text-3xl font-semibold text-white">Your profile</h1>
-        <button onclick="window.location.href='index.php?action=logout';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Logout</button>
-        <button onclick="window.location.href='index.php?action=user_list';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">User list</button>
-        <button onclick="window.location.href='index.php?action=produit_list';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Product list</button>
-        <button onclick="window.location.href='index.php?action=produit_create';" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-white">Create product</button>
-    </header>
+
+<?php
+include __DIR__ . '/../components/navbar.php';
+?>
 
     <main class="mx-auto mt-6 max-w-5xl">
         <div class="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl p-6 md:p-10">
@@ -30,10 +27,6 @@
                         <div class="flex items-center justify-between">
                             <dt class="text-white/80">ID</dt>
                             <dd class="font-medium"><?= htmlspecialchars($user['user_id']) ?></dd>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <dt class="text-white/80">Account ID</dt>
-                            <dd class="font-medium"><?= htmlspecialchars($user['user_compte_id']) ?></dd>
                         </div>
                         <div class="flex items-center justify-between">
                             <dt class="text-white/80">Login</dt>

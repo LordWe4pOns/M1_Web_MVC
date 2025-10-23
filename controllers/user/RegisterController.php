@@ -16,13 +16,12 @@ class RegisterController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $login = $_POST['login'] ?? '';
             $password = $_POST['password'] ?? '';
-            $account_id = $_POST['account_id'] ?? '';
             $email = $_POST['email'] ?? '';
 
-            if (empty($login) || empty($password) || empty($account_id) || empty($email)) {
+            if (empty($login) || empty($password) || empty($email)) {
                 $message = "All fields are required.";
             } else {
-                $success = $this->model->registerUser($login, $password, $account_id, $email);
+                $success = $this->model->registerUser($login, $password, $email);
                 if ($success) {
                     header('Location: index.php?action=login');
                     exit();

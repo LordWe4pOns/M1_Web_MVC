@@ -25,16 +25,11 @@
                 <input id="login" name="login" type="text" required class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50" />
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div>
-                    <label for="password" class="block text-sm font-medium text-white">Password</label>
-                    <input id="password" name="password" type="password" required class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50" />
-                </div>
-                <div>
-                    <label for="account_id" class="block text-sm font-medium text-white">Account ID</label>
-                    <input id="account_id" name="account_id" type="number" required class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50" />
-                </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-white">Password</label>
+                <input id="password" name="password" type="password" required class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50" />
             </div>
+
 
             <div>
                 <label for="email" class="block text-sm font-medium text-white">Email address</label>

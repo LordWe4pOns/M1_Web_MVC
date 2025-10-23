@@ -35,6 +35,7 @@ class LoginController {
 
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_login'] = $user['user_login'];
+        $_SESSION['admin'] = $user['admin'];
         header('Location: index.php?action=profile');
         exit();
     }

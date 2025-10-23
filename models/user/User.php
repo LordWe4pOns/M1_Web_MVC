@@ -27,16 +27,15 @@ class User {
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function registerUser($login, $password, $account_id, $email): bool {
+    public function registerUser($login, $password, $email): bool {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $query = "INSERT INTO user (user_login, user_password, user_compte_id, user_mail)
-                  VALUES (:login, :password, :account_id, :email)";
+        $query = "INSERT INTO user (user_login, user_password, user_mail)
+                  VALUES (:login, :password, :email)";
         $statement = $this->db->prepare($query);
 
         $statement->execute([
             ':login' => $login,
             ':password' => $hashedPassword,
-            ':account_id' => $account_id,
             ':email' => $email
         ]);
 
@@ -61,10 +60,6 @@ class User {
         if (isset($userData['user_password'])) {
             $fields[] = 'user_password = :user_password';
             $params[':user_password'] = password_hash($userData['user_password'], PASSWORD_BCRYPT);
-        }
-        if (isset($userData['user_compte_id'])) {
-            $fields[] = 'user_compte_id = :user_compte_id';
-            $params[':user_compte_id'] = $userData['user_compte_id'];
         }
         if (isset($userData['user_mail'])) {
             $fields[] = 'user_mail = :user_mail';

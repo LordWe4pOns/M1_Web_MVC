@@ -16,6 +16,14 @@
         </button>
     </header>
 
+    <?php
+    session_start();
+    
+    if (!isset($user) && isset($_SESSION['admin'])) {
+        $user['admin'] = $_SESSION['admin'];
+    }
+    ?>
+
     <!-- Table -->
     <div class="overflow-x-auto mx-auto max-w-5xl rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg shadow-2xl">
         <table class="w-full text-white text-sm">
@@ -23,11 +31,14 @@
                 <tr>
                     <th class="px-4 py-3 text-left">ID</th>
                     <th class="px-4 py-3 text-left">Login</th>
-                    <th class="px-4 py-3 text-left">Account ID</th>
                     <th class="px-4 py-3 text-left">Email</th>
                     <th class="px-4 py-3 text-left">Created</th>
                     <th class="px-4 py-3 text-left">Last connection</th>
+                    <?php
+                    if (!empty($user['admin']) && $user['admin'] == 1) :
+                        ?>
                     <th class="px-4 py-3 text-center">Actions</th>
+                    <?php endif; ?>
                 </tr>
             </thead>
             <tbody>
@@ -35,10 +46,12 @@
                     <tr class="border-t border-white/10 hover:bg-white/10 transition">
                         <td class="px-4 py-3"><?= $u['user_id'] ?></td>
                         <td class="px-4 py-3"><?= htmlspecialchars($u['user_login']) ?></td>
-                        <td class="px-4 py-3"><?= htmlspecialchars($u['user_compte_id']) ?></td>
                         <td class="px-4 py-3"><?= htmlspecialchars($u['user_mail']) ?></td>
                         <td class="px-4 py-3"><?= htmlspecialchars($u['user_date_new']) ?></td>
                         <td class="px-4 py-3"><?= htmlspecialchars($u['user_date_login']) ?></td>
+                        <?php
+                        if (!empty($user['admin']) && $user['admin'] == 1) :
+                        ?>
                         <td class="px-4 py-3 text-center flex justify-center gap-2">
                             <!-- Edit -->
                             <button type="button"
@@ -54,6 +67,7 @@
                                 🗑️ Delete
                             </a>
                         </td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
